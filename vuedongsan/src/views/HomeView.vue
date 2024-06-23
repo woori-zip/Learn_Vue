@@ -7,8 +7,12 @@
   <!-- Component -->
   <DiscountBanner></DiscountBanner>
 
+  <DetailModal :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
+
+  <ProductCard :원룸들="원룸들" :모달창열렸니="모달창열렸니"/>
+
   <!-- 모달창 -->
-  <div class="black-bg" v-if="모달창열렸니 == true">
+  <!-- <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
       <h4>{{ 원룸들[누른거].title }}</h4>
       <img :src="원룸들[누른거].image" class="room-img">
@@ -16,7 +20,7 @@
       <p>{{ 원룸들[누른거].content }}</p>
       <button @click="모달창열렸니 = false">닫기</button>
     </div>
-  </div>
+  </div> -->
 
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
@@ -78,12 +82,12 @@
 
   <hr> -->
 
-  <h1>* json 에서 데이터 불러오기(반복문) *</h1>
+  <!-- <h1>* json 에서 데이터 불러오기(반복문) *</h1>
   <div v-for="(작명,i) in 원룸들" :key="i">
     <img :src="원룸들[i].image" class="room-img">
     <h4 @click="모달창열렸니 = true; 누른거 = i">{{ 원룸들[i].title }}</h4>
     <p>가격: {{ 원룸들[i].price }}</p>
-  </div>
+  </div> -->
 
   <div v-if="1 == 2">
     안녕하세요1
@@ -98,6 +102,8 @@
 <script>
 import data from '../assets/data'
 import DiscountBanner from '../DiscountBanner.vue'
+import DetailModal from '@/DetailModal.vue'
+import ProductCard from '../ProductCard.vue'
 
 export default {
   name: 'App',
@@ -120,7 +126,9 @@ export default {
     }
   },
   components: {
-    DiscountBanner: DiscountBanner
+    DiscountBanner: DiscountBanner,
+    DetailModal: DetailModal,
+    ProductCard: ProductCard
   }
 }
 </script>
